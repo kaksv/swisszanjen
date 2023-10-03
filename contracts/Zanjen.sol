@@ -9,6 +9,10 @@ import "./PERC20.sol";
 contract PERC20Sample is PERC20 {
     constructor() PERC20("Sample PERC20", "pSWTR") {}
 
+    function mint1000tokens() public {
+        _mint(msg.sender,1000*10**18);
+    }
+
     /// @dev Wraps SWTR to PSWTR.
     receive() external payable {
         _mint(_msgSender(), msg.value);
